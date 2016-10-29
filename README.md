@@ -1,18 +1,17 @@
-# smart-gesture-react
----
+# react-smart-gesture
 鼠标手势组件 [smart-gesture ](https://github.com/ElemeFE/smart-gesture) 的 React 版本。
 
 ## 安装
 
 ```sh
-npm install smart-gesture-react
+npm install react-smart-gesture
 ```
 
 ## 使用
 
 ```jsx
 import React, { Component } from 'react';
-import SmartGesture from 'smart-gesture-react';
+import SmartGesture from 'react-smart-gesture';
 
 class App extends Component {
   _onGesture(res, points) {
@@ -34,7 +33,7 @@ class App extends Component {
 export default App;
 ```
 
-详细使用方法可以参考: demo
+详细使用方法可以参考: [demo](https://elemefe.github.io/react-smart-gesture/)
 
 ## 文档
 
