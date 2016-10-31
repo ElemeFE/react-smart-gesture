@@ -4,7 +4,7 @@
 ## 安装
 
 ```sh
-npm install react-smart-gesture
+npm install react-smart-gesture --save
 ```
 
 ## 使用
@@ -21,10 +21,11 @@ class App extends Component {
   render() {
     const options = {
       lineColor: 'red',
+      onGesture: this._onGesture,
     };
     return (
       <div className="demo">
-		<SmartGesture onGesture={this._onGesture.bind(this)} options={options} />
+		<SmartGesture options={options} />
       </div>
     );
   }

@@ -14,22 +14,14 @@ const singleNodeStyle = {
 };
 
 class SmartGesture extends React.Component {
-  static propTypes = {
-    style: React.PropTypes.object,
-  };
-
+  componentWillMount() {
+    this.userOptions = this.props.options;
+  }
   componentDidMount() {
-    const userOptions = {...this.props.options};
-    delete userOptions.el;
-    delete userOptions.onGesture;
     const options = {
+      ...this.userOptions,
       el: this.refs.smartGestureDrawingArea,
       timeDelay: 0,
-      onGesture: (res, points) => {
-        if (this.props.onGesture) this.props.onGesture(res, points);
-        // document.getElementById('result').innerHTML = res.score > 2 ? res.name : '未识别';
-      },
-      ...userOptions,
     };
 
     this.gesture = new smartGesture(options);
@@ -48,16 +40,23 @@ class SmartGesture extends React.Component {
   }
 
   render() {
+    const divProps = Object.assign({}, this.props);
+    delete divProps.options;
+
     if (!this.props.children) {
-      return <div ref="smartGestureDrawingArea" {...this.props} style={{...singleNodeStyle, ...this.props.style}} />
+      return <div ref="smartGestureDrawingArea" {...divProps} style={{...singleNodeStyle, ...this.props.style}} />
     }
 
     return (
-      <div ref="smartGestureDrawingArea" {...this.props} style={{...defaultStyle, ...this.props.style}}>
+      <div ref="smartGestureDrawingArea" {...divProps} style={{...defaultStyle, ...this.props.style}}>
         { this.props.children }
       </div>
     );
   }
 }
+
+SmartGesture.propTypes = {
+  style: React.PropTypes.object,
+};
 
 export default SmartGesture;
