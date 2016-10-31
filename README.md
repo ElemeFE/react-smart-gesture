@@ -18,7 +18,7 @@ class App extends Component {
     console.log(res, points);
   }
 
-  _onGesture(directionList) {
+  _onSwipe(directionList) {
     console.log(directionList);
   }
 
