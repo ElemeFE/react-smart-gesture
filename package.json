@@ -1,6 +1,6 @@
 {
   "name": "react-smart-gesture",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "--- 鼠标手势组件 [smart-gesture ](https://github.com/ElemeFE/smart-gesture) 的 React 版本。",
   "main": "./lib/app.js",
   "dependencies": {

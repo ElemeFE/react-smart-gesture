@@ -18,9 +18,16 @@ class App extends Component {
     console.log(res, points);
   }
 
+  _onGesture(directionList) {
+    console.log(directionList);
+  }
+
   render() {
     const options = {
       lineColor: 'red',
+      timeDelay: 0,
+      triggerMouseKey: 'left',
+      onSwipe: this._onSwipe,
       onGesture: this._onGesture,
     };
     return (
