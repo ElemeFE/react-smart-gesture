@@ -180,9 +180,13 @@ class App extends Component {
   }
 
   render() {
-    const options = {
+    const options1 = {
+      onGesture: this._onGesture1.bind(this),
+    };
+    const options2 = {
       lineColor: &#39;red&#39;,
       lineWidth: &#39;1&#39;,
+      onGesture: this._onGesture2.bind(this),
     };
 
     return (
@@ -201,7 +205,7 @@ class App extends Component {
         &lt;hr/&gt;
         &lt;p&gt;&lt;b&gt;名称:&lt;/b&gt; {this.state.result1.name || &#39;未识别&#39;} &lt;b&gt;分数:&lt;/b&gt; {this.state.result1.score || 0}&lt;/p&gt;
 
-        &lt;SmartGesture ref=&quot;g1&quot; onGesture={this._onGesture1.bind(this)}&gt;
+        &lt;SmartGesture ref=&quot;g1&quot; options={options1}&gt;
           &lt;div style={{border: &#39;1px solid gray&#39;}}&gt;
             &lt;p&gt;在已有的组件上添加手势。在已有的组件上添加手势。在已有的组件上添加手势。在已有的组件上添加手势。&lt;/p&gt;
             &lt;p&gt;在已有的组件上添加手势。在已有的组件上添加手势。在已有的组件上添加手势。在已有的组件上添加手势。&lt;/p&gt;
@@ -219,7 +223,7 @@ class App extends Component {
         &lt;hr/&gt;
         &lt;p&gt;&lt;b&gt;名称:&lt;/b&gt; {this.state.result2.name || &#39;未识别&#39;} &lt;b&gt;分数:&lt;/b&gt; {this.state.result2.score || 0}&lt;/p&gt;
 
-        &lt;SmartGesture ref=&quot;g2&quot; onGesture={this._onGesture2.bind(this)} style={{width:300,height: 200}} options={options} /&gt;
+        &lt;SmartGesture ref=&quot;g2&quot; style={{width:300,height: 200}} options={options2} /&gt;
         &lt;br/&gt;
         &lt;p&gt;
           将刚才的手势命名为: &lt;input type=&quot;text&quot; ref=&quot;gName&quot;/&gt; &lt;button ref=&quot;gConfirm&quot;&gt;确定&lt;/button&gt; ( tip: 为手势录入多个样例，可以提高识别率 )
